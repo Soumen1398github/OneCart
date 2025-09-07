@@ -118,7 +118,7 @@ function PlaceOrder() {
           );
 
           setCartItem({});
-          toast.success("Payment Successful 🎉");
+          toast.success("Payment Successful");
           navigate("/order");
         }
         setLoading(false);
