@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { authDataContext } from '../context/authContext';
 import axios from 'axios';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
 import { userDataContext } from '../context/UserContext';

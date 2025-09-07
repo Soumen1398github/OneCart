@@ -31,7 +31,7 @@ app.use("/api/order",orderRoutes)
 
 
 app.listen(port,()=>{
-    console.log("Hello From Server")
+    console.log(`server is running on port ${port}`)
     connectDb()
 })
 
