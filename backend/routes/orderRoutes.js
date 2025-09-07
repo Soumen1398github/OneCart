@@ -7,9 +7,9 @@ const orderRoutes = express.Router()
 
 //for User
 orderRoutes.post("/placeorder",isAuth,placeOrder)
-orderRoutes.post("/razorpay",isAuth,placeOrderStripe)
+orderRoutes.post("/placeorderstripe", isAuth, placeOrderStripe);
 orderRoutes.post("/userorder",isAuth,userOrders)
-orderRoutes.post("/verifyrazorpay",isAuth,verifyStripe)
+orderRoutes.post("/verifystripe", isAuth, verifyStripe);
  
 //for Admin
 orderRoutes.post("/list",adminAuth,allOrders)

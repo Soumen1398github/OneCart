@@ -16,8 +16,6 @@ import Order from "./pages/Order";
 import { ToastContainer } from "react-toastify";
 import NotFound from "./pages/NotFound";
 import Ai from "./component/Ai";
-import RefundPolicy from "./pages/RefundPolicy";
-import ShippingPolicy from "./pages/ShippingPolicy";
 function App() {
   let { userData } = useContext(userDataContext);
   let location = useLocation();
@@ -89,8 +87,16 @@ function App() {
           }
         />
 
-        {/* <Route path='/contact' 
-        element={userData ? <Contact/> : <Navigate to="/login" state={{from: location.pathname}} /> }/> */}
+        <Route
+          path="/contact"
+          element={
+            userData ? (
+              <Contact />
+            ) : (
+              <Navigate to="/login" state={{ from: location.pathname }} />
+            )
+          }
+        />
         <Route
           path="/productdetail/:productId"
           element={
@@ -135,9 +141,9 @@ function App() {
         />
 
         <Route path="*" element={<NotFound />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
-        <Route path="/shipping-policy" element={<ShippingPolicy />} />
+        <Route path="/shipping-policy" element={<ShippingPolicy />} /> */}
       </Routes>
       <Ai />
     </>
