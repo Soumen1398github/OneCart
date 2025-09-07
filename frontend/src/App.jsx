@@ -16,6 +16,11 @@ import Order from "./pages/Order";
 import { ToastContainer } from "react-toastify";
 import NotFound from "./pages/NotFound";
 import Ai from "./component/Ai";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 function App() {
   let { userData } = useContext(userDataContext);
   let location = useLocation();
@@ -123,12 +128,15 @@ function App() {
           path="/placeorder"
           element={
             userData ? (
-              <PlaceOrder />
+              <Elements stripe={stripePromise}>
+                <PlaceOrder />
+              </Elements>
             ) : (
               <Navigate to="/login" state={{ from: location.pathname }} />
             )
           }
         />
+
         <Route
           path="/order"
           element={
