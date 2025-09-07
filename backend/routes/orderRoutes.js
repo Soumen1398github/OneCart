@@ -1,15 +1,15 @@
 import express from 'express'
 import isAuth from '../middleware/isAuth.js'
-import { allOrders, placeOrder, placeOrderRazorpay, updateStatus, userOrders, verifyRazorpay } from '../controller/orderController.js'
+import { allOrders, placeOrder, placeOrderStripe, updateStatus, userOrders, verifyStripe } from '../controller/orderController.js'
 import adminAuth from '../middleware/adminAuth.js'
 
 const orderRoutes = express.Router()
 
 //for User
 orderRoutes.post("/placeorder",isAuth,placeOrder)
-orderRoutes.post("/razorpay",isAuth,placeOrderRazorpay)
+orderRoutes.post("/razorpay",isAuth,placeOrderStripe)
 orderRoutes.post("/userorder",isAuth,userOrders)
-orderRoutes.post("/verifyrazorpay",isAuth,verifyRazorpay)
+orderRoutes.post("/verifyrazorpay",isAuth,verifyStripe)
  
 //for Admin
 orderRoutes.post("/list",adminAuth,allOrders)
